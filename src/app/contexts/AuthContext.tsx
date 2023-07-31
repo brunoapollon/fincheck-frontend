@@ -53,7 +53,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     signin,
     logout
   }}>
-    <LauchScreen isLoading={isFetching} />;
+    <LauchScreen isLoading={isFetching} />
     {!isFetching&& children}
   </AuthContext.Provider>;
 }
