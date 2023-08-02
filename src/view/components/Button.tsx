@@ -2,11 +2,11 @@ import { ButtonHTMLAttributes } from 'react';
 import { useClassNames } from '../../app/hooks/useClassNames';
 import { Spinner } from './Spinner';
 
-interface ButtonProips extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
 }
 
-export function Button({className, isLoading, disabled, children, ...props}: ButtonProips) {
+export function Button({className, isLoading, disabled, children, ...props}: ButtonProps) {
   return <button
     {...props}
     disabled={disabled || isLoading}
