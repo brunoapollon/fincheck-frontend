@@ -9,7 +9,7 @@ export function Dashboard() {
       <Logo className="text-teal-900 h-6" />
       <UserMenu />
     </header>
-    <main className='flex-1 flex gap-4 flex-col md:flex-row'>
+    <main className='flex-1 flex gap-4 flex-col md:flex-row max-h-full'>
       <div className='w-full md:w-1/2'>
         <Accounts />
       </div>

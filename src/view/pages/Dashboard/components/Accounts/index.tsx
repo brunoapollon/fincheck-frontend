@@ -3,8 +3,8 @@ import { SwiperSlide, Swiper } from 'swiper/react';
 
 import 'swiper/css';
 import { EyeIcon } from '../../../../components/icons/EyeIcon';
-import { AccountsSliderNavigation } from './AccountsSliderNavigation';
-import { AccountCard } from './AccountCard';
+import { AccountsSliderNavigation } from './SliderNavigation';
+import { AccountCard } from './Card';
 import { useAccountsController } from './useAccountsController';
 
 
