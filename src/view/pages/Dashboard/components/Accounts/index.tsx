@@ -6,22 +6,35 @@ import { EyeIcon } from '../../../../components/icons/EyeIcon';
 import { AccountsSliderNavigation } from './SliderNavigation';
 import { AccountCard } from './Card';
 import { useAccountsController } from './useAccountsController';
+import { formatCurrency } from '../../../../../app/utils/formatCurrency';
+import { useClassNames } from '../../../../../app/hooks/useClassNames';
 
 
 export function Accounts() {
-  const { sliderState, setSliderState, windowWidth } = useAccountsController();
+  const { 
+    sliderState, 
+    setSliderState,
+    windowWidth, 
+    areValuesVisible, 
+    toogleValuesVisibility 
+  } = useAccountsController();
 
-  return <div className="bg-teal-900 rounded-2xl w-full h-full md:p-10 px-4 py-8 flex flex-col">
+  return <div className='bg-teal-900 rounded-2xl w-full h-full md:p-10 px-4 py-8 flex flex-col'>
     <div>
-      <span className="tracking-[-0.5px] text-white block">
+      <span className='tracking-[-0.5px] text-white block'>
         Saldo Total
       </span>
       <div className='flex items-center gap-2'>
-        <strong className="text-2xl tracking-[-1px] text-white">
-          R$ 1.000,00
+        <strong 
+          className={useClassNames(
+            'text-2xl tracking-[-1px] text-white',
+            !areValuesVisible && 'blur-md'
+          )}
+        >
+          {formatCurrency(1000)}
         </strong>
-        <button className='flex items-center justify-center w-8 h-8'>
-          <EyeIcon open />
+        <button className='flex items-center justify-center w-8 h-8' onClick={toogleValuesVisibility}>
+          <EyeIcon open={!areValuesVisible} />
         </button>
       </div>
     </div>
