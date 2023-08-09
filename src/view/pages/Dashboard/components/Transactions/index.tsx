@@ -1,5 +1,3 @@
-import { ChevronDownIcon } from '@radix-ui/react-icons';
-import { TransactionsIcon } from '../../../../components/icons/TransactionsIcon';
 import { FilterIcon } from '../../../../components/icons/FilterIcon';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { MONTHS } from '../../../../../app/config/constants';
@@ -11,6 +9,7 @@ import { useTransactionController } from './useTransactionController';
 import { useClassNames } from '../../../../../app/hooks/useClassNames';
 import { Spinner } from '../../../../components/Spinner';
 import emptyStateImage from '../../../../../assets/empty-state.svg';
+import { TransactiontypeDropdown } from './TransactiontypeDropdown';
 
 export function Transactions() {
   const { areValuesVisible, isInitialLoading, isLoaing, transactions } = useTransactionController();
@@ -24,11 +23,7 @@ export function Transactions() {
     {!isInitialLoading && <>
       <header>
         <div className='flex items-center justify-between'>
-          <button className='flex items-center gap-2'>
-            <TransactionsIcon />
-            <span className='text-sm text-gray-800 font-medium tracking-[-0.5px]'>Transações</span>
-            <ChevronDownIcon className='text-gray-900' />
-          </button>
+          <TransactiontypeDropdown />
           <button>
             <FilterIcon />
           </button>
@@ -57,7 +52,7 @@ export function Transactions() {
       <div className="mt-4 space-y-2 flex-1 overflow-y-auto">
         {isLoaing && <div className='flex flex-col items-center justify-center h-full'>
           <Spinner className='w-10 h-10' />
-        </div>} 
+        </div>}
         {(!hasTransactions && !isLoaing) && <div className='flex flex-col items-center justify-center h-full'>
           {!hasTransactions && <>
             <img src={emptyStateImage} alt="empty-state" />
