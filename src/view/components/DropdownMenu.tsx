@@ -7,7 +7,7 @@ function DropdownMenuRoot({ children }: { children: React.ReactNode }) {
   </RdxDropdownMenu.Root>;
 }
 function DropdownMenuTrigger({ children }: { children: React.ReactNode }) {
-  return <RdxDropdownMenu.Trigger className='outline-none'>
+  return <RdxDropdownMenu.Trigger className='outline-none' asChild>
     {children}
   </RdxDropdownMenu.Trigger>;
 }
