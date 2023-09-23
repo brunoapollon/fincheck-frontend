@@ -25,7 +25,11 @@ export function NewAccountModal() {
         />
         <Select
           placeholder='Tipo de conta'
-          options={[]}
+          options={[
+            { label: 'Investimentos', value: 'INVESTMENT ' },
+            { label: 'Conta corrente', value: 'CHECKING ' },
+            { label: 'Dinheiro físico', value: 'CASH ' },
+          ]}
         />
       </div>
     </form>
