@@ -3,7 +3,7 @@ import { useWindowWidth } from '../../../../../app/hooks/useWindowWidth';
 import { useDashboard } from '../DashboardContext/useDashboard';
 
 export function useAccountsController() {
-  const { areValuesVisible, toogleValuesVisibility } = useDashboard();
+  const { areValuesVisible, toogleValuesVisibility, openNewAccountModal } = useDashboard();
 
   const windowWidth = useWindowWidth();
   const [sliderState, setSliderState] = useState({
@@ -15,9 +15,10 @@ export function useAccountsController() {
     sliderState,
     setSliderState,
     windowWidth,
-    areValuesVisible, 
+    areValuesVisible,
     toogleValuesVisibility,
     isLoading: false,
-    accounts: []
+    accounts: [],
+    openNewAccountModal
   };
 }

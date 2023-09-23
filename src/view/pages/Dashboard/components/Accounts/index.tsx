@@ -11,30 +11,30 @@ import { useClassNames } from '../../../../../app/hooks/useClassNames';
 import { Spinner } from '../../../../components/Spinner';
 import { PlusIcon } from '@radix-ui/react-icons';
 
-
 export function Accounts() {
-  const { 
-    sliderState, 
+  const {
+    sliderState,
     setSliderState,
-    windowWidth, 
-    areValuesVisible, 
+    windowWidth,
+    areValuesVisible,
     toogleValuesVisibility,
     isLoading,
-    accounts
+    accounts,
+    openNewAccountModal
   } = useAccountsController();
 
   return <div className='bg-teal-900 rounded-2xl w-full h-full md:p-10 px-4 py-8 flex flex-col'>
     {isLoading && <div className='w-full h-full flex items-center justify-center'>
       <Spinner className='text-teal-950/50 fill-white w-10 h-10' />
     </div>}
-    
+
     {!isLoading && <>
       <div>
         <span className='tracking-[-0.5px] text-white block'>
         Saldo Total
         </span>
         <div className='flex items-center gap-2'>
-          <strong 
+          <strong
             className={useClassNames(
               'text-2xl tracking-[-1px] text-white',
               !areValuesVisible && 'blur-md'
@@ -55,7 +55,9 @@ export function Accounts() {
               Minhas contas
             </strong>
           </div>
-          <button className='mt-4 h-52 rounded-2xl border-2 border-dashed border-teal-600 flex flex-col items-center justify-center gap-4 text-white hover:bg-teal-950/10 transition-colors'>
+          <button
+            onClick={openNewAccountModal}
+            className='mt-4 h-52 rounded-2xl border-2 border-dashed border-teal-600 flex flex-col items-center justify-center gap-4 text-white hover:bg-teal-950/10 transition-colors'>
             <div className='w-11 h-11 rounded-full border-2 border-dashed border-white flex items-center justify-center'>
               <PlusIcon className='h-6 w-6' />
             </div>
@@ -89,7 +91,7 @@ export function Accounts() {
               />
             </SwiperSlide>
             <SwiperSlide>
-              <AccountCard 
+              <AccountCard
                 borderColor='#333'
                 name='XP'
                 balance={123}
@@ -97,7 +99,7 @@ export function Accounts() {
               />
             </SwiperSlide>
             <SwiperSlide>
-              <AccountCard 
+              <AccountCard
                 borderColor='#0f0'
                 name='Carteira'
                 balance={123}
@@ -107,8 +109,6 @@ export function Accounts() {
           </Swiper>
         </div>}
       </div>
-
-      
     </>}
   </div>;
 }
